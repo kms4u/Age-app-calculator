@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./styles/main.css">
+  <title>Frontend Mentor | Age calculator app</title>
+</head>
+
+<body>
+
+  <div class="card">
+
+    <div class="input-wrapper">
+
+      <label id="forDay" for="day">
+        <p id="daytext">DAY</p>
+        <input type="text" id="day" placeholder="DD">
+        <p class="descText">This field is required</p>
+      </label>
+
+      <label id="forMonth" for="month">
+        <p id="monthtext">MONTH</p>
+        <input type="text" id="month" placeholder="MM">
+        <p class="descText">This field is required</p>
+      </label>
+
+      <label id="forYear" for="year">
+        <p id="yeartext">YEAR</p>
+        <input type="text" id="year" placeholder="YYYY">
+        <p class="descText">This field is required</p>
+      </label>
+
+    </div>
+
+    <div class="line">
+      <button id="submit">
+        <img src="./assets/images/icon-arrow.svg" alt="">
+      </button>
+    </div>
+
+    <div class="output-wrapper">
+
+      <div class="output-el">
+        <div class="output" id="yearOutput">- -</div>
+        <div class="years">years</div>
+      </div>
+
+      <div class="output-el">
+        <div class="output" id="monthOutput">- -</div>
+        <div class="months">months</div>
+      </div>
+
+      <div class="output-el">
+        <div class="output" id="dayOutput">- -</div>
+        <div class="days">days</div>
+      </div>
+
+    </div>
+
+  </div>
+  <script src="./js/count.js"></script>
+  <script src="./js/error.js"></script>
+</body>
+
+</html>
