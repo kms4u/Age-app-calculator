@@ -21,26 +21,29 @@ function isDate(y, m, d) {
 // что происходит при клике на кнопку рассчета
 submitBtn.addEventListener('click', () => {
     // собираем все инпуты 
-    const yearInput = forYear.querySelector('#year').value;
-    const monthInput = forMonth.querySelector('#month').value;
-    const dayInput = forDay.querySelector('#day').value;
+    const yearInput = forYear.querySelector('#year');
+    const monthInput = forMonth.querySelector('#month');
+    const dayInput = forDay.querySelector('#day');
 
-    if (dayInput === '') {
+    if (dayInput.value === '') {
         dayError.innerText = 'this field is required';
         forDay.querySelector('#day').style.cssText += `border: 1px solid var(--LigthRed);`;
         forDay.querySelector('#daytext').style.cssText += `color: var(--LigthRed);`;
     }
-    if (monthInput === '') {
+
+    if (monthInput.value === '') {
         monthError.innerText = 'this field is required';
         forMonth.querySelector('#month').style.cssText += `border: 1px solid var(--LigthRed);`;
         forMonth.querySelector('#monthtext').style.cssText += `color: var(--LigthRed);`;
     }
-    if (yearInput === '') {
+
+    if (yearInput.value === '') {
         yearError.innerText = 'this field is required';
         forYear.querySelector('#year').style.cssText += `border: 1px solid var(--LigthRed);`;
         forYear.querySelector('#yeartext').style.cssText += `color: var(--LigthRed);`;
     }
-    else if ( !isDate(yearInput, monthInput, dayInput) ) {
+
+    else if ( !isDate(yearInput.value, monthInput.value, dayInput.value) ) {
         dayError.innerText = 'must be a valid date';
 
         forDay.querySelector('#day').style.cssText += `border: 1px solid var(--LigthRed);`;
@@ -51,6 +54,24 @@ submitBtn.addEventListener('click', () => {
         forMonth.querySelector('#monthtext').style.cssText += `color: var(--LigthRed);`;
         forYear.querySelector('#yeartext').style.cssText += `color: var(--LigthRed);`;
     }
+
+    dayInput.addEventListener('click', () => {
+        dayError.innerText = '';
+        forDay.querySelector('#day').style.cssText -= `border: 1px solid var(--LigthRed);`;
+        forDay.querySelector('#daytext').style.cssText -= `color: var(--LigthRed);`;  
+    })
+
+    monthInput.addEventListener('click', () => {
+        monthError.innerText = '';
+        forMonth.querySelector('#month').style.cssText -= `border: 1px solid var(--LigthRed);`;
+        forMonth.querySelector('#monthtext').style.cssText -= `color: var(--LigthRed);`;  
+    })
+
+    yearInput.addEventListener('click', () => {
+        yearError.innerText = '';
+        forYear.querySelector('#year').style.cssText -= `border: 1px solid var(--LigthRed);`;
+        forYear.querySelector('#yeartext').style.cssText -= `color: var(--LigthRed);`;  
+    })
 })
 
 // must be a valid day
