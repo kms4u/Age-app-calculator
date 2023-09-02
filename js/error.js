@@ -24,36 +24,48 @@ submitBtn.addEventListener('click', () => {
 
     // if input has no info
     if (dayInput.value === '') {
+
         dayError.innerText = 'this field is required';
         forDay.querySelector('#day').style.cssText += `border: 1px solid var(--LigthRed);`;
         forDay.querySelector('#daytext').style.cssText += `color: var(--LigthRed);`;
+
     } else if (dayInput.value > 31) {
+
         dayError.innerText = 'must be a valid day';
         forDay.querySelector('#day').style.cssText += `border: 1px solid var(--LigthRed);`;
         forDay.querySelector('#daytext').style.cssText += `color: var(--LigthRed);`;
+
     }
     
     // if input has no info
     if (monthInput.value === '') {
+
         monthError.innerText = 'this field is required';
         forMonth.querySelector('#month').style.cssText += `border: 1px solid var(--LigthRed);`;
         forMonth.querySelector('#monthtext').style.cssText += `color: var(--LigthRed);`;
+
     } else if (monthInput.value > 12) {
+
         monthError.innerText = 'must be a valid month';
         forMonth.querySelector('#month').style.cssText += `border: 1px solid var(--LigthRed);`;
         forMonth.querySelector('#monthtext').style.cssText += `color: var(--LigthRed);`;
+
     }
     
 
     // if input has no info             
     if (yearInput.value === '') {
+
         yearError.innerText = 'this field is required';
         forYear.querySelector('#year').style.cssText += `border: 1px solid var(--LigthRed);`;
         forYear.querySelector('#yeartext').style.cssText += `color: var(--LigthRed);`;
+
     } else if (dayInput.value > currentYear) {
+
         yearError.innerText = 'must be in the past';
         forYear.querySelector('#year').style.cssText += `border: 1px solid var(--LigthRed);`;
         forYear.querySelector('#yeartext').style.cssText += `color: var(--LigthRed);`;
+
     }
     
 
