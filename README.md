@@ -39,7 +39,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/ageappcalculator-Wkwb-hQIdO](https://www.frontendmentor.io/solutions/ageappcalculator-Wkwb-hQIdO)
 - Live Site URL: [https://kms4u.github.io/Age-app-calculator/](https://kms4u.github.io/Age-app-calculator/)
 
 ## My process
