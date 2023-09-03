@@ -1,8 +1,6 @@
 const submitBtn = document.querySelector('#submit');
 
 const currentYear = new Date().getFullYear();
-const currentMonth = new Date().getMonth();
-const currentDay = new Date().getDay();
 
 const forDay = document.querySelector('#forDay');
 const forMonth = document.querySelector('#forMonth');
@@ -12,9 +10,9 @@ const dayError = forDay.querySelector('.descText');
 const monthError = forMonth.querySelector('.descText');
 const yearError = forYear.querySelector('.descText');
 
-const dayOutput = document.querySelector('#dayOutput');
-const monthOutput = document.querySelector('#monthOutput');
-const yearOutput = document.querySelector('#yearOutput');
+const yearOutput = document.querySelector('#yearOutput')
+const monthOutput = document.querySelector('#monthOutput')
+const dayOutput = document.querySelector('#dayOutput')
 
 // ckecking the date validation
 function isDate(y, m, d) {
@@ -37,12 +35,28 @@ function outNum(num, elem) {
     }, 50);
 };
 
+// calculation
+function timeFromFirst(y, m, d) {
+
+    let first = new Date(y, --m, d).getTime();
+    let second = new Date().getTime();
+    let diff = new Date(Math.abs(second - first));
+    let years = diff.toISOString().slice(0, 4) - 1970;
+    let months = diff.getMonth();
+    let days = diff.getDate() - 1;
+
+    outNum(years, yearOutput);
+    outNum(months, monthOutput);
+    outNum(days, dayOutput);
+
+}
+
 submitBtn.addEventListener('click', () => {
     // get all inputs
     const yearInput = forYear.querySelector('#year');
     const monthInput = forMonth.querySelector('#month');
     const dayInput = forDay.querySelector('#day');
-
+    
     // if input has no info
     if (dayInput.value === '') {
 
@@ -102,8 +116,6 @@ submitBtn.addEventListener('click', () => {
         forYear.querySelector('#yeartext').style.cssText += `color: var(--LigthRed);`;
     }
 
-    // calculate
-
     else {
         dayError.innerText = '';
 
@@ -116,9 +128,7 @@ submitBtn.addEventListener('click', () => {
         forYear.querySelector('#yeartext').style.cssText -= `color: var(--LigthRed);`;
 
         // calculate the date
-        outNum(parseInt(yearInput.value), yearOutput);
-        outNum(parseInt(monthInput.value), monthOutput);
-        outNum(parseInt(dayInput.value), dayOutput);
+        timeFromFirst(parseInt(yearInput.value), parseInt(monthInput.value), parseInt(dayInput.value));
     }
 
     // reset input error styles on click
