@@ -57,5 +57,5 @@ How to get current date and calculate it.
 
 ## Author
 
-- Website - [SokolovPavel](https://www.your-site.com)
+- Website - [SokolovPavel](https://kms4u.github.io/Sokolov_Web)
 - Frontend Mentor - [@kms4u](https://www.frontendmentor.io/profile/kms4u)
