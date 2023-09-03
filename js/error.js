@@ -1,6 +1,8 @@
 const submitBtn = document.querySelector('#submit');
 
 const currentYear = new Date().getFullYear();
+const currentMonth = new Date().getMonth();
+const currentDay = new Date().getDay();
 
 const forDay = document.querySelector('#forDay');
 const forMonth = document.querySelector('#forMonth');
@@ -10,17 +12,37 @@ const dayError = forDay.querySelector('.descText');
 const monthError = forMonth.querySelector('.descText');
 const yearError = forYear.querySelector('.descText');
 
+const dayOutput = document.querySelector('#dayOutput');
+const monthOutput = document.querySelector('#monthOutput');
+const yearOutput = document.querySelector('#yearOutput');
+
 // ckecking the date validation
 function isDate(y, m, d) {
     let date = new Date(y, --m, d);
     return date.getFullYear() === y && date.getMonth() === m && date.getDate() === d
 }
 
+// animate calculation
+function outNum(num, elem, current) {
+    num = current - num;
+    count = 0;
+    let interval = setInterval(() => {
+        count += 1;
+        if (count === num) {
+            clearInterval(interval);
+        };
+        elem.innerHTML = count;
+        console.log(count)
+    }, 50);
+};
+
 submitBtn.addEventListener('click', () => {
     // get all inputs
     const yearInput = forYear.querySelector('#year');
     const monthInput = forMonth.querySelector('#month');
     const dayInput = forDay.querySelector('#day');
+
+
 
     // if input has no info
     if (dayInput.value === '') {
@@ -51,7 +73,6 @@ submitBtn.addEventListener('click', () => {
         forMonth.querySelector('#monthtext').style.cssText += `color: var(--LigthRed);`;
 
     }
-    
 
     // if input has no info             
     if (yearInput.value === '') {
@@ -60,17 +81,17 @@ submitBtn.addEventListener('click', () => {
         forYear.querySelector('#year').style.cssText += `border: 1px solid var(--LigthRed);`;
         forYear.querySelector('#yeartext').style.cssText += `color: var(--LigthRed);`;
 
-    } else if (dayInput.value > currentYear) {
+    } else if (yearInput.value > currentYear) {
 
         yearError.innerText = 'must be in the past';
         forYear.querySelector('#year').style.cssText += `border: 1px solid var(--LigthRed);`;
         forYear.querySelector('#yeartext').style.cssText += `color: var(--LigthRed);`;
 
     }
-    
 
     // if date is not valid
-    else if ( !isDate(yearInput.value, monthInput.value, dayInput.value) ) {
+    else if ( isDate(parseInt(yearInput.value), parseInt(monthInput.value), parseInt(dayInput.value)) === false ) {
+
         dayError.innerText = 'must be a valid date';
 
         forDay.querySelector('#day').style.cssText += `border: 1px solid var(--LigthRed);`;
@@ -80,6 +101,25 @@ submitBtn.addEventListener('click', () => {
         forDay.querySelector('#daytext').style.cssText += `color: var(--LigthRed);`;
         forMonth.querySelector('#monthtext').style.cssText += `color: var(--LigthRed);`;
         forYear.querySelector('#yeartext').style.cssText += `color: var(--LigthRed);`;
+    }
+
+    // calculate
+
+    else {
+        dayError.innerText = '';
+
+        forDay.querySelector('#day').style.cssText -= `border: 1px solid var(--LigthRed);`;
+        forMonth.querySelector('#month').style.cssText -= `border: 1px solid var(--LigthRed);`;
+        forYear.querySelector('#year').style.cssText -= `border: 1px solid var(--LigthRed);`;
+
+        forDay.querySelector('#daytext').style.cssText -= `color: var(--LigthRed);`;
+        forMonth.querySelector('#monthtext').style.cssText -= `color: var(--LigthRed);`;
+        forYear.querySelector('#yeartext').style.cssText -= `color: var(--LigthRed);`;
+
+        // calculate the date
+        // outNum(parseInt(dayInput.value), dayOutput, currentDay);
+        // outNum(parseInt(monthInput.value), monthOutput, currentMonth);
+        // outNum(parseInt(yearInput.value), yearOutput, currentYear);
     }
 
     // reset input error styles on click
