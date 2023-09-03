@@ -23,16 +23,17 @@ function isDate(y, m, d) {
 }
 
 // animate calculation
-function outNum(num, elem, current) {
-    num = current - num;
-    count = 0;
+function outNum(num, elem) {
+    let count = 0;
     let interval = setInterval(() => {
         count += 1;
+
         if (count === num) {
             clearInterval(interval);
         };
+
         elem.innerHTML = count;
-        console.log(count)
+
     }, 50);
 };
 
@@ -41,8 +42,6 @@ submitBtn.addEventListener('click', () => {
     const yearInput = forYear.querySelector('#year');
     const monthInput = forMonth.querySelector('#month');
     const dayInput = forDay.querySelector('#day');
-
-
 
     // if input has no info
     if (dayInput.value === '') {
@@ -117,9 +116,9 @@ submitBtn.addEventListener('click', () => {
         forYear.querySelector('#yeartext').style.cssText -= `color: var(--LigthRed);`;
 
         // calculate the date
-        // outNum(parseInt(dayInput.value), dayOutput, currentDay);
-        // outNum(parseInt(monthInput.value), monthOutput, currentMonth);
-        // outNum(parseInt(yearInput.value), yearOutput, currentYear);
+        outNum(parseInt(yearInput.value), yearOutput);
+        outNum(parseInt(monthInput.value), monthOutput);
+        outNum(parseInt(dayInput.value), dayOutput);
     }
 
     // reset input error styles on click
