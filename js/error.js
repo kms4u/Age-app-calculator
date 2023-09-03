@@ -56,7 +56,7 @@ submitBtn.addEventListener('click', () => {
     const yearInput = forYear.querySelector('#year');
     const monthInput = forMonth.querySelector('#month');
     const dayInput = forDay.querySelector('#day');
-    
+
     // if input has no info
     if (dayInput.value === '') {
 
@@ -71,7 +71,7 @@ submitBtn.addEventListener('click', () => {
         forDay.querySelector('#daytext').style.cssText += `color: var(--LigthRed);`;
 
     }
-    
+
     // if input has no info
     if (monthInput.value === '') {
 
@@ -103,7 +103,7 @@ submitBtn.addEventListener('click', () => {
     }
 
     // if date is not valid
-    else if ( isDate(parseInt(yearInput.value), parseInt(monthInput.value), parseInt(dayInput.value)) === false ) {
+    else if (isDate(parseInt(yearInput.value), parseInt(monthInput.value), parseInt(dayInput.value)) === false) {
 
         dayError.innerText = 'must be a valid date';
 
@@ -135,18 +135,18 @@ submitBtn.addEventListener('click', () => {
     dayInput.addEventListener('click', () => {
         dayError.innerText = '';
         forDay.querySelector('#day').style.cssText -= `border: 1px solid var(--LigthRed);`;
-        forDay.querySelector('#daytext').style.cssText -= `color: var(--LigthRed);`;  
+        forDay.querySelector('#daytext').style.cssText -= `color: var(--LigthRed);`;
     })
 
     monthInput.addEventListener('click', () => {
         monthError.innerText = '';
         forMonth.querySelector('#month').style.cssText -= `border: 1px solid var(--LigthRed);`;
-        forMonth.querySelector('#monthtext').style.cssText -= `color: var(--LigthRed);`;  
+        forMonth.querySelector('#monthtext').style.cssText -= `color: var(--LigthRed);`;
     })
 
     yearInput.addEventListener('click', () => {
         yearError.innerText = '';
         forYear.querySelector('#year').style.cssText -= `border: 1px solid var(--LigthRed);`;
-        forYear.querySelector('#yeartext').style.cssText -= `color: var(--LigthRed);`;  
+        forYear.querySelector('#yeartext').style.cssText -= `color: var(--LigthRed);`;
     })
 })
