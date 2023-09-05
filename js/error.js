@@ -24,13 +24,13 @@ function isDate(y, m, d) {
 function outNum(num, elem) {
     let count = 0;
     let interval = setInterval(() => {
-        count += 1;
 
         if (count === num) {
             clearInterval(interval);
         };
 
         elem.innerHTML = count;
+        count += 1;
 
     }, 50);
 };
